@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+
+    <style>
+        body{
+            margin: 0;
+            background: green;
+            background-repeat: no-repeat;
+            background-size: 100%,100%;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nav{
+            background: whitesmoke;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            flex-direction: row;
+            left: -1px;
+            z-index: 15;
+        }
+
+        .logo{
+            display: flex;
+            width: 30%;
+        }
+
+        .hdlg{
+            font-family: fantasy;
+            font-size: large;
+            font-weight: 600;
+            text-align: center;
+            padding: 3px;
+
+        }
+
+        .nav-links{
+            display: flex;
+            width: 30%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links ul li{
+            float: left;
+            text-decoration: none;
+            display: block;
+            padding-right: 40px;
+            font-family: fantasy;
+            font-weight: 600;
+            font-size: large;
+            line-height: 60px;
+            padding-left: 5px;
+        }
+        .nav-links ul li > a{
+            text-decoration: none;
+            color: green;
+        }
+        .nav-links ul li:hover{
+            background: rgb(100, 237, 123);
+            color: white;
+        }
+
+        #sidebar{
+            height: 600px;
+            width: 200px;
+            left: 0;
+            background: whitesmoke;
+            position: absolute;
+            padding: 0px;
+            margin: 0px;
+            transition: all 500ms linear;
+            z-index: 10;
+            /* left: -200px; */
+        
+         }
+         
+         .active{
+             left: 0px;
+             width: 0px !important;
+         }
+         #sidebar ul li{
+             color: green;
+             list-style: none;
+             padding: 15px 10px;
+             border-bottom: 1px solid green;
+             margin-left: -39px;
+         }
+
+         #sidebar ul li a{
+             text-decoration: none;
+             color: green;
+         }
+         #sidebar .toggle-btn{
+             position: absolute;
+             left: 230px;
+             top: 20px;
+
+         }
+
+         #sidebar .toggle-btn span{
+             display: block;
+             width: 30px;
+             height: 5px;
+             background: whitesmoke;
+             margin: 3px 0px;
+             cursor: pointer;
+         }
+
+         .picker{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             position: relative;
+             width: 100%;
+             height: 50px;
+             top: 40px;
+             font-size: large;
+             font-family: fantasy;
+             font-weight: bolder;
+             color: white;
+         }
+
+         .selection{
+             width: 300px;
+             height: 300px;
+             background-color: aliceblue;
+             display: flex;
+             justify-content: space-around;
+             align-items: center;
+             flex-wrap: wrap;
+             flex-direction: column;
+             position: relative;
+             left: 500px;
+             top: 50px;
+
+         }
+
+         .safety{
+             width: 100%;
+             height: 200px;
+             /* background-color: aliceblue; */
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+             top: 60px;
+             position: relative;
+             flex-wrap: wrap;
+             flex-direction: column;
+         }
+
+         .safety img{
+             width: 100px;
+             height: 100px;
+             border-radius: 50%;
+         }
+         .icons{
+             display: flex;
+             width: 60%;
+             align-items: center;
+             justify-content: space-between;
+         }
+         .find {
+             text-decoration: none;
+             background-color: green;
+             color: white;
+             padding: 5px;
+         }
+         
+         
+         
+    </style>
+</head>
+<body>
+<header>
+<div class="nav">
+    <div class="logo">
+<img src="../PIC/logo.JPG" alt="lg" height="100%" width="100px"> <p class="hdlg">JARMA <br> E-TICKETING</p>
+</div>
+
+    <div class="nav-links">
+<ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</header>
+<div id="sidebar">
+    <div class="toggle-btn" onclick="togglesidebar()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+    <ul>
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="terms-and-conditions.html">TERMS AND CONDITION</a></li>
+        <li><a href="privacy-policy.html">PRIVACY POLICY</a></li>
+        <li><a href="train-time-table.html">TRAIN TIME TABLE</a></li>
+        <li><a href="sign.html">SIGN IN</a></li>
+        <li><a href="register.html">REGISTER</a></li>
+    </ul>
+  
+</div>
+
+<script>
+    function togglesidebar(){
+        document.getElementById("sidebar").classList.toggle('active');
+    }
+</script>
+<div class="picker">
+    <center>Please note that the date picker is in Nigeria time</center>
+</div>
+<div class="selection">
+    <label for="station1">FROM (SELECT SOURCE STATION)</label><br>
+    <select id="station1"> 
+        <option>IDU (ABUJA)</option>
+        <option>KUBUWA (ABUJA)</option>
+        <option>JERE (KADUNA)</option>
+        <option>RIGANA (KADUNA)</option>
+        <option>RIGASA  (KADUNA)</option>
+    </select>
+    <br>
+    <label for="station2">TO (SELECT DESTINATION STATION)</label><br>
+    <select id="station2"> 
+        <option>IDU (ABUJA)</option>
+        <option>KUBUWA (ABUJA)</option>
+        <option>JERE (KADUNA)</option>
+        <option>RIGANA (KADUNA)</option>
+        <option>RIGASA  (KADUNA)</option>
+    </select>
+    <br>
+    <label for="date">DATE</label><br>
+    <input type="date" id="date" name="date" placeholder="yyyy-mm-dd" min="2018-12-31" max="2018-12-31"><br>
+    <center><a href="find-my-train.html" class="find">FIND MY TRAIN</a></center><br>
+</div>
+<div class="safety">
+    <center>LETS TRAVEL SAFELY</center>
+    <div class="icons">
+    <div class="sanitizer">
+        <img src="../PIC/train (9).JPG" alt="">
+        <p>Use hand sanitizer</p>
+    </div>
+    <div class="sanitizer">
+        <img src="../PIC/train (10).JPG" alt="">
+        <p>Wash your hands</p>
+        </div>
+    <div class="sanitizer">
+        <img src="../PIC/train (1).PNG" alt="">
+        <p>Wear nose mask</p>
+        </div>
+</div>
+</div>
+</body>
+</html>
